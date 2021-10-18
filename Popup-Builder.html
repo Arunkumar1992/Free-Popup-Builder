@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <title>Free Popup Builder</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="icon" href="https://www.pngfind.com/pngs/m/82-827497_modal-popup-icon-for-this-set-of-20.png" type="image/gif">
+
+ <!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+</script>
+</head>
+
+</html>
+ 
+ <script>
+   
+     function handleValueChange(el){
+         SourceValue = el.value;
+         Target = el.id+"view";
+         document.getElementById(Target).innerText = SourceValue;
+       //  alert("Source"+Target);
+        
+     }
+     function handleColorChange(el){
+        SourceValue = el.value;
+       
+         Target = el.dataset.target+"view";
+         TargetProp = el.dataset.targetprop;
+         
+         if(TargetProp=="backgroundColor"){
+            document.getElementById(Target).style.backgroundColor= SourceValue;
+         }
+         if(TargetProp=="color"){
+            document.getElementById(Target).style.color= SourceValue;
+         }
+        // alert(el);
+     }
+     function handleURLChange(el){
+        SourceValue = el.value;
+         Target = "buttontextviewlink";
+         document.getElementById(Target).href = SourceValue;
+       
+      
+                  
+                
+     }
+     function hideembedcode(){
+         document.getElementById("embedcodeparent").style.display="none";
+     }
+     function showembedcode(){
+        document.getElementById("embedcodeparent").style.display="block";
+
+     }
+     function copyembedcode(){
+        var copyText = document.getElementById("embedcode");
+        var copyembedcode =  document.getElementById("copyembedcode");
+        copyembedcode.value= copyText.innerText;
+/* Select the text field */
+copyembedcode.select();
+copyembedcode.setSelectionRange(0, 99999); /* For mobile devices */
+
+/* Copy the text inside the text field */
+navigator.clipboard.writeText(copyembedcode.value);
+document.getElementById("copybutton").innerText="Copied!";
+setInterval(function(){ document.getElementById("copybutton").innerText="Click here to Copy"; }, 3000);
+
+     }
+ </script>
+
+
+ 
+ 
+</head>
+
+<body>
+    
+<div class="container-fluid" style="padding: 0;" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#" style="padding-left: 20px;"> Free Popup Builder</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" style="color: blue;" href="https://twitter.com/arunkkumarr">You can reach me on twitter @arunkkumarr<span class="sr-only">(current)</span></a>
+            </li>
+           
+          </ul>
+         
+        </div>
+      </nav>
+    <div class="row">
+        <div class="col-3">
+
+            <div class="offerboxconfig" style="background-color: #ffffff;height: 100vh;padding: 10px;padding-top:60px" >
+            
+               
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="bannertitle" value="Holiday Sale" placeholder="Banner title" oninput="handleValueChange(this)">
+                    <label for="floatingInput">Banner Title</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Banner Description" id="bannerdescription" style="height: 100px"  oninput="handleValueChange(this)">Special Discount for the Special Day</textarea>
+                    <label for="floatingTextarea2">Banner Description</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="explainertext" id="explainertext" style="height: 100px" value =""  oninput="handleValueChange(this)">Unlock the best deals by shopping today!</textarea>
+                    <label for="floatingTextarea2">Explainer Text</label>
+                  </div>
+                  
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="buttontext"  value="Shop Now" placeholder="Button Text"  oninput="handleValueChange(this)">
+                    <label for="floatingInput">Coupon Code / Button Text</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="buttontext" value=""  placeholder="Button Text"  oninput="handleURLChange(this)">
+                    <label for="floatingInput">Button Text link</label>
+                  </div>
+                  <div style="padding-bottom: 15px;padding-left: 10px;" class="row">
+                    <label for="head" style="vertical-align: top;" class="col-5">Banner Color</label>
+                  <div style="display: inline-block;padding-left: 30px;text-align: right;" class="col-2">  <input type="color" style="height: 20px;" id="bannercolor" name="bannercolor" data-target="offertitle" data-targetprop="backgroundColor"
+                           value="#FF416C" oninput="handleColorChange(this)"></div>
+                    
+                </div>
+                <div style="padding-bottom: 15px;padding-left: 10px;"  class="row">
+                    <label for="head" style="vertical-align: top;" class="col-5">Banner Text Color</label>
+                  <div style="display: inline-block;padding-left: 30px;text-align: right;" class=" col-2 ">  <input type="color" style="height: 20px;" id="bannertextcolor" name="bannertextcolor" data-target="offertitle" data-targetprop="color"
+                           value="#FFFFFF" oninput="handleColorChange(this)"></div>
+                </div>
+                  <div style="padding-bottom: 15px;padding-left: 10px;"  class="row">
+                    <label for="head" style="vertical-align: top;"  class="col-5">Button Color</label>
+                  <div style="display: inline-block;padding-left: 30px;text-align: right;"  class="col-2">  <input type="color" style="height: 20px;" id="buttoncolor" name="ButtonColor" data-target="buttontext" data-targetprop="backgroundColor"
+                           value="#0b5ed7" oninput="handleColorChange(this)"></div>
+                    
+                </div>
+                <div style="padding-bottom: 15px;padding-left: 10px;"  class="row">
+                    <label for="head" style="vertical-align: top;"  class="col-5">Button Text Color</label>
+                  <div style="display: inline-block;padding-left: 30px;text-align: right;"  class="col-2">  <input type="color" style="height: 20px;" id="buttonctextolor" name="buttonctextolor" data-target="buttontext" data-targetprop="color"
+                           value="#FFFFFF" oninput="handleColorChange(this)"></div>
+                    
+                </div>
+                
+                <div style="text-align: center;margin-bottom: 20px;"> <button class="btn btn-outline-primary" type="button" onclick="showexitscript()">Add this as "Exit Popup" in My site</button></div>
+                <div style="text-align: center;"> <button class="btn btn-outline-primary" type="button" onclick="showentryscript()">Add this as "Entry Popup" in My site</button></div>
+
+                
+
+            </div>
+        </div>
+        
+        <div class="col-4" id="offerboxmodalparent"> <div class="offerboxmodal" style=" display: none;position: fixed; z-index: -1; padding-top: 15%;padding-left: 20%; left: 0; top: 0;width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4); " id="offerboxModal"> <div class="offerboxcontent offerboxmodal-content" style="background-color: #ffffff; text-align: center;-webkit-box-shadow: 0 2px 6px 0 #e1e3ea; box-shadow: 0 2px 6px 0 #e1e3ea;overflow:hidden; border: 1px solid #dde1e6; border-radius: 15px;padding-bottom: 0px;font-family: system-ui;position: relative; margin: auto;width: 40%; "> <span class="offerboxclose" id="closebtn" style="position: absolute; right:0;color:#fff;width:50px;height:50px;opacity:0.8;float: right;font-size: 28px;font-weight: bold;cursor: pointer;">&times;</span> <div class="offertitleview" id="offertitleview" style="background: #FF416C; color:#fff;padding: 15px;margin-bottom: 10px;"><h1 id="bannertitleview" style="font-size: 2.5rem;">Holiday Sale</h1><div class="offerdesc" style="font-size:20px" id="bannerdescriptionview">Special Discount for the Special Day</div></div><div class="explainertextview" id="explainertextview" style="padding-bottom: 30px;padding-top:20px;padding-right: 10px;padding-left:10px;font-size:20px">Unlock the best deals by shopping today! </div><div class="offercode"><a href="" style="text-decoration: none;" id="buttontextviewlink"><div class="" style="border:0;padding: 10px 20px;background-color: #0d6efd;color:#fff;font-size:20px;font-weight:bold;width:100%;text-decoration: none;" id="buttontextview" type="submit">Shop Now</div></a></div></div></div></div>
+        <div class="col-2"></div>   
+        <div class="col-12" style="background: white; word-break: break-all;padding:70px 20px;position: absolute; height: 100vh; display: none;" id="embedcodeparent">
+            <div style="text-align: left;"><button class="" style="border:0;padding: 10px 20px;color:#000;" onclick="hideembedcode()"> <- Go back to Design</button></div>
+
+            <div style="text-align: center;"><h2>Copy this code and add this at the end of your HTML  Page</h2></div>
+        
+            <div id="embedcode" style="color: white; word-break: break-all;background: #f76933;
+            word-break: break-all;
+            margin: 20px 70px;
+            padding: 20px 40px;box-shadow: 0px 0px 7px rgba(0,0,0,0.16);border-radius: 20px; font-style: italic;">
+            
+            <div id="embedhtml"></div>
+            <div id="commonscript"></div>
+            <div id="actionscript"></div>
+           <textarea id="copyembedcode" style="display: none;"></textarea>
+            
+        </div>
+      <div style="text-align: center;;"> <button class="" style="border:0;padding: 10px 20px;background-color: #0d6efd;color:#fff;" id="copybutton" onclick="copyembedcode()">Click here to Copy</button></div> 
+    <div style="margin:20px;"><div class="alert alert-primary" style="text-align: center;" role="alert">
+        If You need any help or changes in the popup, I can help you. Write a mail with all requirmenets to <a href="mailto:arunkumar@arunkumar.space" class="alert-link">arunkumar@arunkumar.space</a>.
+      </div></div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            
+        </div>
+    </div>
+   
+</div>
+  <h1 style="text-align:center;display: none;">User Profile Information</h1>
+
+ 
+<div class="card" style="display: none;">
+  <img width="200px" height="450px" src="https://theimag.org/wp-content/uploads/2015/01/user-icon-png-person-user-profile-icon-20.png" alt="John" style="width:100%">
+  <p class="title" id="fname"></p>
+  <p class="title" id="lname"></p>
+  <p class="title"id="mailid" ></p>
+  <p class="title"id="tzone" ></p>
+  <p class="title"id="ctime" ></p>
+  <p><button onclick="logout()">Logout</button></p>
+ </div>
+ 
+
+<script>
+    
+    var offerboxmodal = document.getElementById("offerboxModal");
+    var offerboxspan = document.getElementsByClassName("offerboxclose")[0];
+    offerboxmodal.onclick = function() {
+        offerboxmodal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == offerboxmodal) {
+        offerboxmodal.style.display = "none";
+      }
+    }
+
+
+
+    </script>
+    
+  
+<script>
+     var entryscript= 'window.onload = function() {var offerboxmodal = document.getElementById("offerboxModal");offerboxmodal.style.zIndex="1";offerboxmodal.style.display = "block";}';
+        var exitscript = 'function onMouseOut(event) {if (event.clientY < 50 &&event.relatedTarget == null &&event.target.nodeName.toLowerCase() !== "select") {document.removeEventListener("mouseout", onMouseOut);var offerboxmodal = document.getElementById("offerboxModal");offerboxmodal.style.display="block";}}document.addEventListener("mouseout", onMouseOut);';
+        var popupscript = 'var offerboxmodal = document.getElementById("offerboxModal");offerboxmodal.style.zIndex="99999";var offerboxspan = document.getElementsByClassName("offerboxclose")[0];offerboxmodal.onclick = function() {offerboxmodal.style.display = "none";};window.onclick = function(event) {if (event.target == offerboxmodal) {offerboxmodal.style.display = "none";}}';
+      
+    function showexitscript(){
+        showembedcode();
+        var offerboxcontent = document.getElementById("offerboxmodalparent").innerHTML;
+        document.getElementById("embedhtml").innerText=offerboxcontent+"<script>"+popupscript+"<\/script>"+"<script>"+exitscript+"<\/script>";
+            var elmnt = document.getElementById("embedcode");
+  elmnt.scrollIntoView();
+    }
+    function showentryscript(){
+        showembedcode();
+        var offerboxcontent = document.getElementById("offerboxmodalparent").innerHTML;
+        document.getElementById("embedhtml").innerText=offerboxcontent+"<script>"+popupscript+"<\/script>"+"<script>"+entryscript+"<\/script>";
+            var elmnt = document.getElementById("embedcode");
+  elmnt.scrollIntoView();
+    }
+</script>
+    <script id="appscript">
+        var offerboxmodal = document.getElementById("offerboxModal");
+      offerboxmodal.style.zIndex="-1";
+      offerboxmodal.style.display="block";
+   </script>
+</body>
+
+</html>
